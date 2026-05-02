@@ -1,0 +1,27 @@
+     name: Weibo Monitor
+
+    on:
+      schedule:
+        - cron: '*/30 * * * *'  # 每30分钟运行一次
+      workflow_dispatch: # 允许手动点击运行
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+
+          - name: Run Monitor
+            uses: actions/setup-python@v4
+            with:
+              python-version: '3.x'
+
+          - name: Install dependencies & Run
+            run: |
+              echo "开始监控任务..."
+              # 这里通常是运行脚本的命令，比如 python main.py
+              # 因为我们是基于配置文件的逻辑，这里模拟运行
+              echo "读取 config.yaml 配置..."
+              echo "监控关键词：侯之准预测"
+    
